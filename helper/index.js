@@ -4,6 +4,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const axios = require('axios');
 const urlValidator = require('valid-url');
 const sharp = require("sharp");
+const crypto = require('crypto');
 
 const isValidUrl = (videoUrl) => {
     if (!urlValidator.isUri(videoUrl)) {
@@ -117,7 +118,13 @@ const generateThumbnail = (videoUrl, thumbnailPath, outputFolder) => {
     });
 };
 
+const generateThumbnailName = (videoUrl) => {
+    const hash = crypto.createHash('sha256').update(videoUrl).digest('hex');
+    return `${hash}.png`;
+};
+
 module.exports = {
     extractMetadata,
-    generateThumbnail
+    generateThumbnail,
+    generateThumbnailName
 };
