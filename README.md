@@ -114,3 +114,7 @@ If you don't have FFmpeg installed, you can download it from [here](https://ffmp
 
    **Example**: If the server is running locally, open `http://localhost:3000/thumbnails/thumbnail.png` in your browser to view the generated thumbnail.
 
+
+4. **List Public Video**:
+
+   https://gist.github.com/jsturgis/3b19447b304616f18657
