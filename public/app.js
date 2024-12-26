@@ -1,9 +1,11 @@
 document.getElementById('generateBtn').addEventListener('click', async () => {
     const videoUrl = document.getElementById('videoUrl').value;
+    const generateBtn = document.getElementById('generateBtn');
     if (!videoUrl) {
         alert('Please enter a valid video URL');
         return;
     }
+    generateBtn.disabled = true;
     document.getElementById('loading').classList.remove('hidden');
     try {
         // Call the backend API to generate the thumbnail
@@ -42,5 +44,6 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
         alert('Error: ' + error.message);
     } finally {
         document.getElementById('loading').classList.add('hidden');
+        generateBtn.disabled = false;
     }
 });
