@@ -9,8 +9,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/generate-thumbnail', async (req, res) => {
     const { videoUrl } = req.body;
     const thumbnailPath = path.join(__dirname, 'thumbnails', 'thumbnail.png');
+    const outputFolder = path.join(__dirname, 'frames');
+
     try {
-        await generateThumbnail(videoUrl, thumbnailPath);
+        await generateThumbnail(videoUrl, thumbnailPath,outputFolder);
         res.json({ message: 'Thumbnail generated successfully', thumbnailUrl: '/thumbnails/thumbnail.png' });
     } catch (error) {
         res.status(500).json({ message: 'Error generating thumbnail', error: error.message });
