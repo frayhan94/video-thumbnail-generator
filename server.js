@@ -5,7 +5,7 @@ const app = express();
 const {extractMetadata,generateThumbnail} = require('./helper/index');
 
 app.use(express.json());
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.post('/generate-thumbnail', async (req, res) => {
     const { videoUrl } = req.body;
     const thumbnailPath = path.join(__dirname, 'thumbnails', 'thumbnail.png');
