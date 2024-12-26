@@ -4,7 +4,7 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
         alert('Please enter a valid video URL');
         return;
     }
-
+    document.getElementById('loading').classList.remove('hidden');
     try {
         // Call the backend API to generate the thumbnail
         const thumbnailResponse = await fetch('/generate-thumbnail', {
@@ -40,5 +40,7 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
         }
     } catch (error) {
         alert('Error: ' + error.message);
+    } finally {
+        document.getElementById('loading').classList.add('hidden');
     }
 });

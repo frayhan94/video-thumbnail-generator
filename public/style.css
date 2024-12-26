@@ -66,3 +66,9 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+#loading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4500;
+}
